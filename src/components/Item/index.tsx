@@ -1,16 +1,13 @@
 import React, { FC } from 'react';
 import style from './Item.module.scss';
 
-interface Iitem {
+interface IItem {
   name: string;
   description: string;
 }
 
-const Item: FC<Iitem> = (props: any) => {
+const Item: FC<IItem> = (props) => {
   const { name, description } = props;
-
-  console.log('НАЗВАНИЕ', name);
-  console.log('ОПИСАНИЕ', description);
 
   return (
     <div className={style.item_container}>
@@ -20,4 +17,5 @@ const Item: FC<Iitem> = (props: any) => {
     </div>
   );
 };
+
 export default Item;

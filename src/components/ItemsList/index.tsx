@@ -22,7 +22,7 @@ const ItemsMock = [
     price: 20000,
   },
   {
-    id: 1,
+    id: 4,
     itemName: 'Пиджак',
     itemDescription: 'Ну очень модный пиджак',
     price: 5000,
@@ -32,13 +32,12 @@ const ItemsMock = [
 const ItemsList = () => {
   return (
     <div className={style.items_list__wrapper}>
-      <p>Список товаров</p>
+      <p>Список товаров:</p>
       <div className={style.items_list}>
         {ItemsMock.map((item) => {
           const { id, itemName, itemDescription } = item;
           return <Item key={`ID: ${id}`} name={itemName} description={itemDescription} />;
         })}
-
         {/* <Item name={ItemsMock.itemName} description={ItemsMock.itemDescription} />
         <Item name="Шапка" description="Очень красивая шапка" />
         <Item name={ItemsMock.itemName} description={ItemsMock.itemDescription} />
