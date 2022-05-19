@@ -22,7 +22,7 @@ const ItemsMock = [
     price: 20000,
   },
   {
-    id: 1,
+    id: 4,
     itemName: 'Пиджак',
     itemDescription: 'Ну очень модный пиджак',
     price: 5000,
