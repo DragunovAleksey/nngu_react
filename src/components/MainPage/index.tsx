@@ -6,9 +6,7 @@ import style from './MainPage.module.scss';
 const MainPage = () => {
   return (
     <MainLayout>
-      <div className={style.page_wrapper}>
-        <ItemsList />
-      </div>
+      <ItemsList />
     </MainLayout>
   );
 };
