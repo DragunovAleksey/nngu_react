@@ -15,7 +15,7 @@ const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
     pagesArray.push(i);
   }
 
-  console.log(pagesArray);
+  
 
   return (
     <div>
