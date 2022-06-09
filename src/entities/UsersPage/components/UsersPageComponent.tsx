@@ -8,13 +8,17 @@ interface IProps {
   usersDataAttr: IUsers[];
 }
 
+const megaLimit = 3;
+const lastIndex = 4 * megaLimit;
+const firstIndex = lastIndex - megaLimit;
+
 const UsersPageComponent: FC<IProps> = ({ usersDataAttr }) => {
   return (
     <div>
       <p>Список пользователей:</p>
       <div className={style.user_list}>
         {usersDataAttr.length ? (
-          usersDataAttr.map((user) => {
+          usersDataAttr.slice(firstIndex, lastIndex).map((user) => {
             const { id, name, email } = user;
             return (
               <React.Fragment key={`UserId:${id}`}>
@@ -25,7 +29,7 @@ const UsersPageComponent: FC<IProps> = ({ usersDataAttr }) => {
         ) : (
           <div>Пользователи не найдены.</div>
         )}
-        <Pagination limit={3} itemsAmount={usersDataAttr.length} />
+        <Pagination limit={megaLimit} itemsAmount={usersDataAttr.length} />
       </div>
     </div>
   );
