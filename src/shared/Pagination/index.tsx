@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
+import React, { useState, FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface IProps {
   limit: number;
   itemsAmount: number;
+  setPageNumber: any;
 }
-const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
+const Pagination: FC<IProps> = ({ limit, itemsAmount, setPageNumber }) => {
   const pagesAmount = Math.ceil(itemsAmount / limit);
   const pagesArray = [];
 
@@ -15,12 +16,16 @@ const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
     pagesArray.push(i);
   }
 
-  
-
   return (
     <div>
       {pagesArray.map((page) => (
-        <button key={`key${page}`} type="button" onClick={() => navigate(`?page=${page}`)}>
+        <button
+          key={`key${page}`}
+          type="button"
+          onClick={() => {
+            setPageNumber(page);
+            navigate(`?page=${page}`);
+          }}>
           {page}
         </button>
       ))}
@@ -29,4 +34,5 @@ const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
 };
 
 export default Pagination;
-// количество страниц || текущая страница || лимит на страницу || общее количество страниц
+
+

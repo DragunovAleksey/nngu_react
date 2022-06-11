@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { IUsers } from '../../../interfaces/IUsers';
 import Pagination from '../../../shared/Pagination';
 import style from '../UsersPage.module.scss';
@@ -8,11 +8,11 @@ interface IProps {
   usersDataAttr: IUsers[];
 }
 
-const megaLimit = 3;
-const lastIndex = 4 * megaLimit;
-const firstIndex = lastIndex - megaLimit;
-
 const UsersPageComponent: FC<IProps> = ({ usersDataAttr }) => {
+  const [pageNumber, setPageNumber] = useState(1);
+  const limit = 3;
+  const lastIndex = pageNumber * limit;
+  const firstIndex = lastIndex - limit;
   return (
     <div>
       <p>Список пользователей:</p>
@@ -29,10 +29,15 @@ const UsersPageComponent: FC<IProps> = ({ usersDataAttr }) => {
         ) : (
           <div>Пользователи не найдены.</div>
         )}
-        <Pagination limit={megaLimit} itemsAmount={usersDataAttr.length} />
+        <Pagination
+          limit={limit}
+          itemsAmount={usersDataAttr.length}
+          setPageNumber={setPageNumber}
+        />
       </div>
     </div>
   );
 };
 
 export default UsersPageComponent;
+
