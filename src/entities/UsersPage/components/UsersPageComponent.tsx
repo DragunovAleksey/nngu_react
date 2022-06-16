@@ -40,4 +40,3 @@ const UsersPageComponent: FC<IProps> = ({ usersDataAttr }) => {
 };
 
 export default UsersPageComponent;
-

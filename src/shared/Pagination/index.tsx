@@ -34,5 +34,3 @@ const Pagination: FC<IProps> = ({ limit, itemsAmount, setPageNumber }) => {
 };
 
 export default Pagination;
-
-
