@@ -1,12 +1,11 @@
-import React, { useState, FC } from 'react';
+import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface IProps {
   limit: number;
   itemsAmount: number;
-  setPageNumber: any;
 }
-const Pagination: FC<IProps> = ({ limit, itemsAmount, setPageNumber }) => {
+const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
   const pagesAmount = Math.ceil(itemsAmount / limit);
   const pagesArray = [];
 
@@ -23,7 +22,6 @@ const Pagination: FC<IProps> = ({ limit, itemsAmount, setPageNumber }) => {
           key={`key${page}`}
           type="button"
           onClick={() => {
-            setPageNumber(page);
             navigate(`?page=${page}`);
           }}>
           {page}
