@@ -5,6 +5,7 @@ import style from './Sidebar.module.scss';
 
 const Sidebar = () => {
   const { pathname } = useLocation();
+
   return (
     <div className={style.sidebar_wrapper}>
       <ul className={style.sidebar_menu}>

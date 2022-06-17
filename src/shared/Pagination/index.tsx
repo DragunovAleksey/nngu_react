@@ -5,9 +5,10 @@ interface IProps {
   limit: number;
   itemsAmount: number;
 }
+
 const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
   const pagesAmount = Math.ceil(itemsAmount / limit);
-  const pagesArray = [];
+  const pagesArray: number[] = [];
 
   const navigate = useNavigate();
 
@@ -18,12 +19,7 @@ const Pagination: FC<IProps> = ({ limit, itemsAmount }) => {
   return (
     <div>
       {pagesArray.map((page) => (
-        <button
-          key={`key${page}`}
-          type="button"
-          onClick={() => {
-            navigate(`?page=${page}`);
-          }}>
+        <button key={`key${page}`} type="button" onClick={() => navigate(`?page=${page}`)}>
           {page}
         </button>
       ))}

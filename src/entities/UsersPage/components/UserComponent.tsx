@@ -9,7 +9,7 @@ const UserComponent = () => {
       <button type="button" onClick={() => navigate(-1)}>
         Вернуться назад
       </button>
-      <div>Страница пользователя {id}</div>;
+      <div>Страница пользователя {id}</div>
     </>
   );
 };
